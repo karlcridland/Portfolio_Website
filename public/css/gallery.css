@@ -1,0 +1,28 @@
+section.gallery{
+    position: absolute;
+    top: 74px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 74px);
+}
+div.gallery{
+    height: 100%;
+    max-width: 900px;
+    margin: auto;
+    overflow-y: scroll;
+    overflow-x: revert;
+}
+div.artwork{
+    position: relative;
+    float: left;
+    width: calc((100% - 60px)/ 3);
+    min-width: 250px;
+    height: 400px;
+    background-color: white;
+    box-shadow: 0 5px 20px 7px rgba(0,0,0,0.1);
+    transition: ease all 200ms;
+    margin: 10px;
+}
+div.artwork:hover{
+    transform: scale(1.05);
+}
