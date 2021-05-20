@@ -21,6 +21,8 @@ a.homeButton{
     text-align: center;
     min-width: 120px;
     height: 34px;
+    text-decoration: none;
+    font-weight: 500;
 }
 a.homeButton:hover{
     background-color: rgba(0,0,0,0.1);

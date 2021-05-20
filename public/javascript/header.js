@@ -6,6 +6,11 @@ function appendButton(name,position,anchor,parent){
     button.textContent = name;
     button.style.float = position;
     parent.appendChild(button);
+
+    if (anchor !== null){
+        button.href = anchor;
+    }
+
     return button;
 }
 
@@ -13,11 +18,11 @@ const dropdown = document.createElement('div');
 dropdown.setAttribute('class','dropdown');
 document.getElementById('body').appendChild(dropdown);
 
-const homeButton = appendButton('home','left','/index.html',header);
+const homeButton = appendButton('home','left','index.html',header);
 const accountButton = appendButton('account','right',null,header);
-const galleryButton = appendButton('gallery','right','/gallery.html',header);
-const iosButton = appendButton('iOS Apps','right','/gallery.html?type=ios',dropdown);
-const websiteButton = appendButton('Websites','right','/gallery.html?type=websites',dropdown);
+const galleryButton = appendButton('gallery','right','gallery.html',header);
+const iosButton = appendButton('iOS Apps','right','gallery.html?type=ios',dropdown);
+const websiteButton = appendButton('Websites','right','gallery.html?type=websites',dropdown);
 
 function locateDropdown(){
     dropdown.style.left = galleryButton.offsetLeft+'px';
