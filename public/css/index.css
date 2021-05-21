@@ -1,3 +1,57 @@
 :root{
     --neon: #dc5eff
 }
+a{
+    text-decoration: none;
+}
+a:visited{
+    color: unset;
+}
+div.section{
+    position: relative;
+    width: 50%;
+    height: 100%;
+    float: left;
+    display: block;
+    transition: all ease 400ms;
+}
+div.invite{
+    position: relative;
+    margin: auto;
+    padding: 10px 20px;
+    width: fit-content;
+    background-color: white;
+    text-align: center;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all ease 200ms;
+    border-radius: 4px;
+}
+div.invite:hover{
+    /*transform: translateY(calc(-50% - 3px));*/
+    color: #039be5;
+    background-color: whitesmoke;
+}
+div.invite::before{
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    top: 120%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0f4264;
+    filter: blur(12px);
+    opacity: 0.4;
+    transform: rotateX(75deg) scaleX(0.95);
+}
+div.contactTitle{
+    padding: 10px 20px;
+    width: fit-content;
+    background-color: white;
+    margin: 20px;
+    border-radius: 4px;
+    font-size: 1.4em;
+
+}

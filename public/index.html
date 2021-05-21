@@ -10,6 +10,12 @@
   <body id="body">
   <div id="header" class="header"></div>
   <div id="main" class="main">
+    <div class="section" id="navigation" style="background-color: #039be5">
+      <div class="invite"><a href="gallery.html">view the gallery</a></div>
+    </div>
+    <div class="section" id="contact" style="background-color: #ffa100">
+      <div class="contactTitle">contact me</div>
+    </div>
   </div>
   </body>
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -19,4 +25,16 @@
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
   <script src="javascript/firebase.js"></script>
   <script src="javascript/header.js"></script>
+  <script>
+    const nav = document.getElementById('navigation');
+    const con = document.getElementById('contact');
+    function pushOver(push,pull){
+      push.onmouseover = function (){
+        pull.style.width = '45%';
+        push.style.width = '55%';
+      }
+    }
+    pushOver(nav,con);
+    pushOver(con,nav);
+  </script>
 </html>
