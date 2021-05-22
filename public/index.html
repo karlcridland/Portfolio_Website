@@ -14,7 +14,12 @@
       <div class="invite"><a href="gallery.html">view the gallery</a></div>
     </div>
     <div class="section" id="contact" style="background-color: #ffa100">
-      <div class="contactTitle">contact me</div>
+      <div class="contact" style="float:right">contact me</div>
+      <form style="position: absolute; top: 50%; transform: translateY(-50%); width: 100%">
+        <label for="name"></label><input class="contact" id="name" placeholder="full name">
+        <label for="email"></label><input class="contact" id="email" placeholder="email address">
+        <label for="message"></label><textarea class="contact" id="message" placeholder="message"></textarea>
+      </form>
     </div>
   </div>
   </body>
@@ -28,13 +33,22 @@
   <script>
     const nav = document.getElementById('navigation');
     const con = document.getElementById('contact');
-    function pushOver(push,pull){
-      push.onmouseover = function (){
-        pull.style.width = '45%';
-        push.style.width = '55%';
-      }
+    document.getElementById('body').onclick = function (){
+      nav.style.width = '50%';
+      con.style.width = '50%';
     }
-    pushOver(nav,con);
-    pushOver(con,nav);
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const message = document.getElementById('message');
+    [name,email,message].forEach(function (input){
+      input.onfocus = function (){
+        con.style.width = '60%';
+        nav.style.width = '40%';
+      }
+      input.onclick = function (e){
+        e.stopPropagation();
+      }
+    })
+
   </script>
 </html>
