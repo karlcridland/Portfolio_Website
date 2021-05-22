@@ -9,12 +9,12 @@ a:visited{
 }
 div.section{
     position: relative;
-    width: 50%;
     height: 100%;
     float: left;
     display: block;
     transition: all ease 400ms;
     overflow: scroll;
+    background-size: cover;
 }
 div.invite{
     position: relative;
@@ -28,6 +28,7 @@ div.invite{
     transform: translateY(-50%);
     transition: all ease 200ms;
     border-radius: 4px;
+    font-size: 22px;
 }
 div.invite:hover{
     /*transform: translateY(calc(-50% - 3px));*/
@@ -59,6 +60,9 @@ div.invite::before{
 }
 div.contact{
     width: fit-content;
+    font-size: 3em;
+    color: white;
+    background-color: unset;
 }
 input.contact{
     border: unset;
@@ -71,4 +75,46 @@ textarea.contact{
     margin: 15px auto;
     resize: none;
     height: 150px;
+}
+div.send{
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    height: 100px;
+    background-color: white;
+    width: 100px;
+    border-radius: 50px 0 0 50px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: all ease 200ms, right ease 400ms;
+    box-shadow: 0 3px 3px 3px rgba(0,0,0,0.1);
+    font-weight: 700;
+}
+div.send:hover{
+    width: 110px;
+    background-color: #039be5;
+    color: whitesmoke;
+}
+div.error{
+    position: relative;
+    background-color: white;
+    height: 100px;
+    top: -150px;
+    border-radius: 50px;
+    width: 80%;
+    max-width: 500px;
+    z-index: 200;
+    margin: auto;
+    display: block;
+    transition: all ease 400ms;
+    box-shadow: 0 3px 3px 3px rgba(0,0,0,0.1);
+}
+div.slideshow{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background-color: rgba(255,255,255,0.3);
+    border-top: solid 4px white;
 }

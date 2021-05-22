@@ -10,17 +10,24 @@
   <body id="body">
   <div id="header" class="header"></div>
   <div id="main" class="main">
-    <div class="section" id="navigation" style="background-color: #039be5">
-      <div class="invite"><a href="gallery.html">view the gallery</a></div>
+    <div class="section" id="navigation" style="background-color: #039be5; width: calc(70% - 2px); border-right: solid 2px white; background-image: url('media/stripes.png')">
+      <div class="invite"><a href="gallery.html">view all</a></div>
+      <div class="slideshow"></div>
     </div>
-    <div class="section" id="contact" style="background-color: #ffa100">
+    <div class="section" id="contact" style="background-color: #ffa100; width: calc(30% - 2px); border-left: solid 2px white">
       <div class="contact" style="float:right">contact me</div>
       <form style="position: absolute; top: 50%; transform: translateY(-50%); width: 100%">
         <label for="name"></label><input class="contact" id="name" placeholder="full name">
         <label for="email"></label><input class="contact" id="email" placeholder="email address">
         <label for="message"></label><textarea class="contact" id="message" placeholder="message"></textarea>
       </form>
+      <div class="send" id="send">
+        <div style="top: 50%; transform: translateY(-50%); position: absolute; width: 100%; text-align: center; font-size: 20px">send</div>
+      </div>
     </div>
+  </div>
+  <div class="error" id="error banner">
+    <div id="error message" style="top: 50%; transform: translateY(-50%); position: absolute; font-size: 20px; font-weight: 500; padding: 10px 50px"></div>
   </div>
   </body>
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -30,25 +37,5 @@
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
   <script src="javascript/firebase.js"></script>
   <script src="javascript/header.js"></script>
-  <script>
-    const nav = document.getElementById('navigation');
-    const con = document.getElementById('contact');
-    document.getElementById('body').onclick = function (){
-      nav.style.width = '50%';
-      con.style.width = '50%';
-    }
-    const name = document.getElementById('name');
-    const email = document.getElementById('email');
-    const message = document.getElementById('message');
-    [name,email,message].forEach(function (input){
-      input.onfocus = function (){
-        con.style.width = '60%';
-        nav.style.width = '40%';
-      }
-      input.onclick = function (e){
-        e.stopPropagation();
-      }
-    })
-
-  </script>
+  <script src="javascript/contact.js"></script>
 </html>
