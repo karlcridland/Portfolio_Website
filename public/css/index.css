@@ -54,7 +54,6 @@ div.invite::before{
     background-color: white;
     padding: 10px 20px;
     border-radius: 4px;
-    font-size: 1.4em;
     display: block;
     max-width: 350px;
 }
@@ -67,14 +66,16 @@ div.contact{
 input.contact{
     border: unset;
     width: calc(100% - 100px);
-    margin: 15px auto;
+    margin: 0 auto;
+    font-size: 1em;
 }
 textarea.contact{
     border: unset;
     width: calc(100% - 100px);
-    margin: 15px auto;
+    margin: 0 auto;
     resize: none;
     height: 150px;
+    font-size: 1em;
 }
 div.send{
     position: absolute;
@@ -117,4 +118,28 @@ div.slideshow{
     height: 200px;
     background-color: rgba(255,255,255,0.3);
     border-top: solid 4px white;
+}
+div.alternate{
+    position: absolute;
+    left: 0;
+    width: calc(100% - 20px);
+    bottom: 0;
+    color: white;
+    font-size: 0.8em;
+    text-align: center;
+    margin: 10px;
+}
+span.alternate{
+    color: #039be5;
+    cursor: pointer;
+}
+span.alternate:hover{
+    color: #6d1fdb;
+}
+label.contact{
+    font-size: 0.8em;
+    background-color: unset;
+    color: white;
+    margin: 0 auto;
+    margin-top: 10px;
 }
