@@ -1,4 +1,5 @@
 class ContactMessage{
+
     constructor(name,email,message) {
         this.name = name;
         this.email = email;
@@ -21,6 +22,8 @@ class ContactMessage{
         })
     }
 
+    // Returns whether the message a user has left has any fields with values which are of length zero.
+
     isEmpty(){
         const message = this;
         let ready = true;
@@ -29,9 +32,11 @@ class ContactMessage{
                 ready = false;
             }
         });
-        console.log(ready)
         return ready;
     }
+
+    // Checks whether all fields have been filled, and whether the email address left by a customer is valid, then
+    // returns true if all conditions have been satisfied, and false if not.
 
     isReady(){
         const message = this;
@@ -48,6 +53,8 @@ class ContactMessage{
         }
         return ready;
     }
+
+    // Clears the input fields.
 
     clear(){
         const message = this;
