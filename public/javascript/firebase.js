@@ -11,3 +11,13 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 const ref = firebase.database().ref();
+const storage = firebase.storage();
+
+HTMLImageElement.prototype.getImage = function (path){
+    let image = this;
+    storage.ref(path).getDownloadURL().then(function(url) {
+        image.src = url.toString();
+    }).catch(function(error) {
+        
+    });
+}
