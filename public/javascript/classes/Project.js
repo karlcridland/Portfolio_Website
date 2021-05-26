@@ -3,8 +3,9 @@ class Project{
     constructor(id,title) {
         this.id = id;
         this.title = title;
+        this.featured = false;
         this.display = document.createElement('div');
-        this.display.setAttribute('class','display');
+        this.display.setAttribute('class','projectDisplay');
         this.createDisplay();
     }
 
@@ -15,11 +16,11 @@ class Project{
         project.display.innerHTML = '';
         this.getData(function (){
             const title = document.createElement('div');
-            title.setAttribute('class','displayTitle');
+            title.setAttribute('class','projectTitle');
             title.textContent = project.title;
             project.display.appendChild(title);
             const image = document.createElement('img');
-            image.setAttribute('class','displayImage');
+            image.setAttribute('class','projectImage');
             image.getImage('projects/thumbnails/'+project.id);
             project.display.appendChild(image);
         })
@@ -40,3 +41,5 @@ class Project{
     }
 
 }
+
+let projects = [];
