@@ -17,8 +17,10 @@ function displayToSlideshow(){
     const slideshow = document.getElementById('slideshow');
     slideshow.innerHTML = '';
     projects.forEach(function (project){
-        if (project.featured){
-
-        }
+        project.isFeatured(function (feature){
+            if (feature){
+                slideshow.appendChild(project.display);
+            }
+        })
     })
 }
