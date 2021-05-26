@@ -11,7 +11,7 @@ div.projectDisplay{
     transform: translateX(-50%);
 }
 div.projectTitle{
-
+    float: left;
 }
 image.projectImage{
     min-height: 200px;
@@ -29,4 +29,15 @@ div.projectButton{
 }
 div.projectButton:hover{
     background-color: rgba(0,0,0,0.1);
+}
+a.projectSeeMore{
+    float: right;
+    margin: 0;
+    color: #039be5;
+    font-weight: 500;
+    cursor: pointer;
+    transition: ease all 200ms;
+}
+a.projectSeeMore:hover{
+    color: #085080;
 }

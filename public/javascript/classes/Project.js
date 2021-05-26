@@ -21,6 +21,12 @@ class Project{
             title.textContent = project.title;
             project.display.appendChild(title);
 
+            const seeMore = document.createElement('a');
+            seeMore.setAttribute('class','projectSeeMore');
+            seeMore.textContent = 'see more';
+            seeMore.href = 'project.html?id='+project.id;
+            project.display.appendChild(seeMore);
+
             const image = document.createElement('img');
             image.setAttribute('class','projectImage');
             image.getImage('projects/thumbnails/'+project.id);
@@ -72,6 +78,7 @@ class Project{
     reposition(position){
         const project = this;
         project.display.style.transform = 'translateX(-50%) scale(0.8)';
+        project.display.style.zIndex = '10';
         if (project.order - position < -1){
             project.display.style.left = '-50%';
         }
@@ -83,6 +90,7 @@ class Project{
                 case 0:
                     project.display.style.left = '50%';
                     project.display.style.transform = 'translateX(-50%)';
+                    project.display.style.zIndex = '20';
                     break;
                 case 1:
                     project.display.style.left = '100%';
