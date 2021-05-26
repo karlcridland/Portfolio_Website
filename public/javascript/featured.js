@@ -23,4 +23,5 @@ function displayToSlideshow(){
             }
         })
     })
+    projects[1].buttonClicked();
 }

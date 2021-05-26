@@ -3,6 +3,7 @@ class Project{
     constructor(id,title) {
         this.id = id;
         this.title = title;
+        this.order = projects.length;
         this.display = document.createElement('div');
         this.display.setAttribute('class','projectDisplay');
         this.createDisplay();
@@ -14,15 +15,35 @@ class Project{
         const project = this;
         project.display.innerHTML = '';
         this.getData(function (){
+
             const title = document.createElement('div');
             title.setAttribute('class','projectTitle');
             title.textContent = project.title;
             project.display.appendChild(title);
+
             const image = document.createElement('img');
             image.setAttribute('class','projectImage');
             image.getImage('projects/thumbnails/'+project.id);
             project.display.appendChild(image);
+
+            const button = document.createElement('div');
+            project.button = button;
+            button.setAttribute('class','projectButton');
+            project.display.appendChild(button);
+            button.onclick = function (){
+                project.buttonClicked();
+            }
+
         })
+    }
+
+    buttonClicked(){
+        const project = this;
+        projects.forEach(function (p){
+            p.reposition(project.order);
+            p.display.appendChild(p.button);
+        })
+        project.display.removeChild(project.button);
     }
 
     // Downloads relevant data.
@@ -45,6 +66,31 @@ class Project{
                 project.featured = snapshot.val();
                 callback(project.featured);
             })
+        }
+    }
+
+    reposition(position){
+        const project = this;
+        project.display.style.transform = 'translateX(-50%) scale(0.8)';
+        if (project.order - position < -1){
+            project.display.style.left = '-50%';
+        }
+        else{
+            switch (position - project.order){
+                case -1:
+                    project.display.style.left = '0';
+                    break;
+                case 0:
+                    project.display.style.left = '50%';
+                    project.display.style.transform = 'translateX(-50%)';
+                    break;
+                case 1:
+                    project.display.style.left = '100%';
+                    break;
+                default:
+                    project.display.style.left = '150%';
+                    break;
+            }
         }
     }
 
