@@ -42,3 +42,9 @@ a.projectSeeMore{
 a.projectSeeMore:hover{
     color: #085080;
 }
+img.arrow{
+    width: 50%;
+    height: 100%;
+    position: relative;
+    float: left;
+}
