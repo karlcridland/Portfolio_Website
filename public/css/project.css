@@ -8,7 +8,8 @@ div.projectDisplay{
     min-height: 200px;
     position: absolute;
     transition: ease all 300ms;
-    transform: translateX(-50%);
+    transform: translateX(-50%) scale(0.9);
+    opacity: 0;
 }
 div.projectTitle{
     float: left;

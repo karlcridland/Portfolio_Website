@@ -36,5 +36,7 @@ function displayToSlideshow(){
             }
         })
     })
-    projects[1].buttonClicked();
+    window.setTimeout(function (){
+        projects[1].buttonClicked();
+    },100);
 }

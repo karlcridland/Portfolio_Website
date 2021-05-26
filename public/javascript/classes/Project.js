@@ -79,6 +79,7 @@ class Project{
         const project = this;
         project.display.style.transform = 'translateX(-50%) scale(0.8)';
         project.display.style.zIndex = '10';
+        project.display.style.opacity = '1';
         if (project.order - position < -1){
             project.display.style.left = '-50%';
         }
