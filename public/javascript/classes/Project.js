@@ -18,7 +18,7 @@ class Project{
 
             const title = document.createElement('div');
             title.setAttribute('class','projectTitle');
-            title.textContent = project.title;
+            title.innerHTML = project.title+'<br>';
             project.display.appendChild(title);
 
             const seeMore = document.createElement('a');
@@ -26,6 +26,27 @@ class Project{
             seeMore.textContent = 'see more';
             seeMore.href = 'project.html?id='+project.id;
             project.display.appendChild(seeMore);
+
+            const tags = document.createElement('div');
+            tags.setAttribute('class','projectTags');
+            project.display.appendChild(tags);
+
+            let tagArray = [];
+            const tagColors = {
+                'iOS':'rgb(8, 74, 191)',
+                'watchOS':'rgb(204, 0, 0)',
+                'website':'rgb(43,140,3)',
+                'java':'rgb(165,92,0)'
+            };
+            project.type.toString().split(' ').forEach(function (tag){
+                tagArray.push('<a class="projectTags" href="gallery.html?type='+tag+'" style="background-color: '+tagColors[tag]+'">'+tag+'</a>');
+            })
+            tags.innerHTML = tagArray.join(' ');
+
+            const description = document.createElement('div');
+            description.setAttribute('class','projectDescription');
+            description.textContent = project.description;
+            project.display.appendChild(description);
 
             const image = document.createElement('img');
             image.setAttribute('class','projectImage');
@@ -38,7 +59,14 @@ class Project{
             project.display.appendChild(button);
             button.onclick = function (){
                 project.buttonClicked();
-            }
+            };
+
+            ['left','right'].forEach(function (direction){
+                const arrow = document.createElement('img');
+                arrow.src = 'media/arrow_'+direction+'.png';
+                arrow.setAttribute('class','arrow');
+                button.appendChild(arrow);
+            })
 
         })
     }
@@ -55,8 +83,13 @@ class Project{
     // Downloads relevant data.
 
     getData(callback){
-        ref.child('projects/type').once('value',snapshot=>{
-            callback();
+        const project = this;
+        ref.child('projects/type/'+project.id).once('value',snapshot=>{
+            project.type = snapshot.val();
+        }).then(function (){
+            ref.child('projects/description/'+project.id).once('value',snapshot=>{
+                project.description = snapshot.val();
+            }).then(callback)
         })
     }
 
@@ -77,29 +110,31 @@ class Project{
 
     reposition(position){
         const project = this;
-        project.display.style.transform = 'translateX(-50%) scale(0.8)';
         project.display.style.zIndex = '10';
         project.display.style.opacity = '1';
-        if (project.order - position < -1){
-            project.display.style.left = '-50%';
-        }
-        else{
-            switch (position - project.order){
-                case -1:
-                    project.display.style.left = '0';
-                    break;
-                case 0:
-                    project.display.style.left = '50%';
-                    project.display.style.transform = 'translateX(-50%)';
-                    project.display.style.zIndex = '20';
-                    break;
-                case 1:
-                    project.display.style.left = '100%';
-                    break;
-                default:
+        project.display.style.transform = 'translateX(-50%) scale(0.8)';
+        project.display.style.top = '0';
+
+        switch (project.order - position){
+            case 0:
+                project.display.style.left = '50%';
+                project.display.style.transform = 'translateX(-50%)';
+                project.display.style.zIndex = '20';
+                break;
+            case -1:
+                project.display.style.left = '0';
+                break;
+            case 1:
+                project.display.style.left = '100%';
+                break;
+            default:
+                if (project.order - position < -1){
+                    project.display.style.left = '-50%';
+                }
+                else{
                     project.display.style.left = '150%';
-                    break;
-            }
+                }
+                break;
         }
     }
 

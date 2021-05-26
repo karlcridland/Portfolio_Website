@@ -6,11 +6,14 @@
     <title>Karl Cridland</title>
     <link type="text/css" rel="stylesheet" href="css/header.css">
     <link type="text/css" rel="stylesheet" href="css/index.css">
-    <link type="text/css" rel="stylesheet" href="css/project.css">
+    <link type="text/css" rel="stylesheet" href="css/project_page.css">
   </head>
   <body id="body">
   <div id="header" class="header"></div>
   <div id="main" class="main">
+    <div class="project">
+      <div class="title" id="title"></div>
+    </div>
   </div>
   <div class="error" id="error banner">
     <div id="error message" style="top: 50%; transform: translateY(-50%); position: absolute; font-size: 20px; font-weight: 500; padding: 10px 50px"></div>
@@ -26,4 +29,14 @@
   <script src="javascript/header.js"></script>
   <script src="javascript/classes/ContactMessage.js"></script>
   <script src="javascript/classes/Project.js"></script>
+  <script>
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+
+    ref.child('projects/title/'+id).once('value',snapshot=>{
+      document.getElementById('title').textContent = snapshot.val();
+    })
+
+  </script>
 </html>

@@ -21,7 +21,7 @@ document.getElementById('body').appendChild(dropdown);
 const homeButton = appendButton('home','left','index.html',header);
 const accountButton = appendButton('sign in','right',null,header);
 const galleryButton = appendButton('gallery','right','gallery.html',header);
-const iosButton = appendButton('iOS Apps','right','gallery.html?type=ios',dropdown);
+const iosButton = appendButton('iOS Apps','right','gallery.html?type=iOS',dropdown);
 const websiteButton = appendButton('Websites','right','gallery.html?type=websites',dropdown);
 
 function locateDropdown(){

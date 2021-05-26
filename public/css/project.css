@@ -2,7 +2,6 @@ div.projectDisplay{
     background-color: white;
     color: black;
     width: 350px;
-    padding: 20px;
     margin: auto;
     box-shadow: 0 3px 3px 3px rgba(0,0,0,0.1);
     min-height: 200px;
@@ -10,13 +9,23 @@ div.projectDisplay{
     transition: ease all 300ms;
     transform: translateX(-50%) scale(0.9);
     opacity: 0;
+    padding: 20px 20px 15px;
 }
 div.projectTitle{
     float: left;
 }
-image.projectImage{
+div.projectDescription{
+    float: left;
+    font-size: 0.9em;
+    font-weight: 300;
+    margin-top: 15px;
+}
+img.projectImage{
     min-height: 200px;
     width: 100%;
+    background-color: #0f4264;
+    margin-top: 20px;
+    border-radius: 6px;
 }
 div.projectButton{
     position: absolute;
@@ -27,9 +36,11 @@ div.projectButton{
     z-index: 1000;
     cursor: pointer;
     transition: ease all 200ms;
+    opacity: 0;
 }
 div.projectButton:hover{
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0,0,0,0.2);
+    opacity: 1;
 }
 a.projectSeeMore{
     float: right;
@@ -47,4 +58,23 @@ img.arrow{
     height: 100%;
     position: relative;
     float: left;
+    object-fit: contain;
+    transform: scale(0.5);
+}
+div.projectTags{
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+}
+a.projectTags{
+    padding: 5px 15px;
+    border-radius: 4px;
+    margin-right: 5px;
+    color: white;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: ease all 200ms;
+}
+a.projectTags:hover{
+    opacity: 0.8;
 }

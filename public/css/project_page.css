@@ -1,0 +1,15 @@
+div.project{
+    position: absolute;
+    background-color: white;
+    margin: 40px;
+    top: 0;
+    left: 0;
+    width: calc(100% - 80px);
+    height: calc(100% - 80px);
+    border-radius: 12px;
+}
+div.title{
+    color: black;
+    margin: 20px;
+    font-size: 2.2em;
+}
