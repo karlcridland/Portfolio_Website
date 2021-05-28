@@ -86,11 +86,11 @@ class Project{
         const project = this;
         ref.child('projects/type/'+project.id).once('value',snapshot=>{
             project.type = snapshot.val();
-        }).then(function (){
+        }).then(
             ref.child('projects/description/'+project.id).once('value',snapshot=>{
                 project.description = snapshot.val();
             }).then(callback)
-        })
+        )
     }
 
     // Returns in a callback whether the project is a featured project.

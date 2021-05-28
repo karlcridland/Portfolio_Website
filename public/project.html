@@ -12,11 +12,13 @@
   <div id="header" class="header"></div>
   <div id="main" class="main">
     <div class="project">
-      <div class="title" id="title"></div>
+      <div id="left" class="half">
+        <div class="title" id="title"></div>
+        <div class="description" id="description"></div>
+        <div class="pictures" id="pictures"></div>
+      </div>
+      <div id="right" class="half"></div>
     </div>
-  </div>
-  <div class="error" id="error banner">
-    <div id="error message" style="top: 50%; transform: translateY(-50%); position: absolute; font-size: 20px; font-weight: 500; padding: 10px 50px"></div>
   </div>
   </body>
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -36,7 +38,20 @@
 
     ref.child('projects/title/'+id).once('value',snapshot=>{
       document.getElementById('title').textContent = snapshot.val();
-    })
+    }).then(adjustPictureFrame);
+
+    ref.child('projects/description/'+id).once('value',snapshot=>{
+      document.getElementById('description').textContent = snapshot.val();
+    }).then(adjustPictureFrame);
+
+    window.onresize = adjustPictureFrame;
+
+    function adjustPictureFrame(){
+      const pics = document.getElementById('pictures');
+      pics.style.height = 'calc(100% - '+(pics.offsetTop+40)+'px)';
+    }
+
+
 
   </script>
 </html>

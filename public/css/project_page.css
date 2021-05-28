@@ -7,9 +7,34 @@ div.project{
     width: calc(100% - 80px);
     height: calc(100% - 80px);
     border-radius: 12px;
+    box-shadow: 0 4px 22px 7px rgba(0, 0, 0, 0.36);
+    overflow: scroll;
 }
 div.title{
     color: black;
     margin: 20px;
     font-size: 2.2em;
+}
+div.description{
+    color: black;
+    margin: 20px 20px 20px 40px;
+    font-size: 1.6em;
+    font-weight: 200;
+    max-height: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+div.half{
+    position: relative;
+    float: left;
+    width: 50%;
+    min-width: 500px;
+    margin: auto;
+    height: 100%;
+}
+div.pictures{
+    width: calc(100% - 60px);
+    border: solid 2px black;
+    margin: 20px 20px 20px 40px;
+    border-radius: 8px;
 }
