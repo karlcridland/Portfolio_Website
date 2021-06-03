@@ -38,3 +38,19 @@ div.pictures{
     margin: 20px 20px 20px 40px;
     border-radius: 8px;
 }
+table.technical{
+    margin: 20px;
+    width: calc(100% - 40px);
+}
+td.technicalLeft{
+    font-size: 1.5em;
+    font-weight: 500;
+    max-width: 200px;
+}
+td.technicalRight{
+    font-size: 1.4em;
+    font-weight: 300;
+}
+a.technical{
+    color: #039be5;
+}

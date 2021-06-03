@@ -147,3 +147,31 @@ class Project{
 }
 
 let projects = [];
+
+const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+String.prototype.getDate = function (){
+    const split = this.split(':')
+    const year = split[0];
+    const month = months[parseInt(split[1])];
+    const day = parseInt(split[2]);
+    return [day.ordinate(),month,year].join(' ');
+}
+
+Number.prototype.ordinate = function (){
+    if (this >= 11 && this <= 13){
+        return this+"th";
+    }
+    else{
+        switch (this){
+            case 1:
+                return this+'st';
+            case 2:
+                return this+'nd';
+            case 3:
+                return this+'rd';
+            default:
+                return this+'th';
+        }
+    }
+}

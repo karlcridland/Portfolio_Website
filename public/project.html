@@ -17,7 +17,12 @@
         <div class="description" id="description"></div>
         <div class="pictures" id="pictures"></div>
       </div>
-      <div id="right" class="half"></div>
+      <div id="right" class="half">
+        <table class="technical">
+          <tr><td class="technicalLeft">Last updated</td><td class="technicalRight" id="updated"></td></tr>
+          <tr><td class="technicalLeft">GitHub</td><td class="technicalRight"><a id="github" class="technical"></a></td></tr>
+        </table>
+      </div>
     </div>
   </div>
   </body>
@@ -50,6 +55,21 @@
       const pics = document.getElementById('pictures');
       pics.style.height = 'calc(100% - '+(pics.offsetTop+40)+'px)';
     }
+
+    ref.child('projects/git/'+id).once('value',snapshot=>{
+      document.getElementById('github').textContent = snapshot.val();
+      document.getElementById('github').href = snapshot.val();
+    })
+
+    ref.child('projects/git/'+id).once('value',snapshot=>{
+      document.getElementById('github').textContent = snapshot.val();
+      document.getElementById('github').href = snapshot.val();
+    })
+
+    ref.child('projects/updated/'+id).once('value',snapshot=>{
+      document.getElementById('updated').textContent = snapshot.val().toString().getDate();
+
+    })
 
 
 
