@@ -8,12 +8,24 @@ class Project{
         this.display = document.createElement('div');
         this.display.setAttribute('class','projectDisplay');
         this.createDisplay();
+        this.createThumbnail();
     }
 
     // Sets up the thumbnail used in the gallery display.
 
     createThumbnail(){
         const project = this;
+        project.thumbnail.setAttribute('class','projectThumbnail');
+
+        const image = document.createElement('img');
+        image.setAttribute('class','projectThumbnailImage');
+        image.getImage();
+        project.thumbnail.appendChild(image);
+
+        const title = document.createElement('div');
+        title.setAttribute('class','projectThumbnailTitle');
+        title.textContent = project.title;
+        project.thumbnail.appendChild(title);
     }
 
     // Sets up all features that should be seen on the display for a user.
