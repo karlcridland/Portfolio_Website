@@ -11,6 +11,7 @@ ref.child('projects/title').once('value',snapshot=>{
 // Displays all relevant projects to the gallery element after removing all current projects first.
 
 function displayProjects(){
+    gallery.innerHTML = '';
     relevantProjects().forEach(function (project){
 
     })
@@ -19,6 +20,20 @@ function displayProjects(){
 // Returns array of all projects that are relevant from the filter dict.
 
 function relevantProjects(){
-    let projects = [];
-    return projects;
+    let filteredProjects = [];
+    projects.forEach(function (project){
+        let include = false;
+        if (Object.keys(filter).length === 0){
+            include = true;
+        }
+        else{
+            Object.keys(filter).forEach(function (f){
+
+            })
+        }
+        if (include){
+            filteredProjects.push(project);
+        }
+    })
+    return filteredProjects;
 }
