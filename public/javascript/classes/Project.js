@@ -4,9 +4,16 @@ class Project{
         this.id = id;
         this.title = title;
         this.order = projects.length;
+        this.thumbnail = document.createElement('div');
         this.display = document.createElement('div');
         this.display.setAttribute('class','projectDisplay');
         this.createDisplay();
+    }
+
+    // Sets up the thumbnail used in the gallery display.
+
+    createThumbnail(){
+        const project = this;
     }
 
     // Sets up all features that should be seen on the display for a user.

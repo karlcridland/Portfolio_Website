@@ -13,7 +13,7 @@ ref.child('projects/title').once('value',snapshot=>{
 function displayProjects(){
     gallery.innerHTML = '';
     relevantProjects().forEach(function (project){
-
+        gallery.appendChild(project.thumbnail);
     })
 }
 
